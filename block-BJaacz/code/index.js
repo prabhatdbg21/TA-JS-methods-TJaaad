@@ -96,8 +96,8 @@ function changeArray (arr , cb ){
     console.log(sendMessage("Hello Alert!", alert));
     console.log(sendMessage("Hello Prompt!", prompt));
 */
-function sendMessage ( string , cb){
-  return cb (string) ;
+function sendMessage ( mes , cb){
+  return cb (mes) ;
 }
 
 /*
@@ -108,7 +108,7 @@ function sendMessage ( string , cb){
 function first (cb){
   return cb ;
 }
-
+ 
 /*
  Create a function named `second`
   - Inside second create another function named `third` which accepts a number, adds 1 to it and returns it
@@ -116,13 +116,12 @@ function first (cb){
   - Also write the required code to call the function
 */
 function second (){
-  function third (){
-    let num = +prompt ("Enter number");
+  function third (num){
     return num + 1 ;
   }
-  return third ();
+  return third ;
 }
-console.log (second ()) ;
+console.log (second ()) ;  
 
 /*
  Write a function named `callMe` which 
@@ -132,11 +131,12 @@ console.log (second ()) ;
   - also write the required code to call the function.
 */
 function callMe (cb) {
-  let final = []
-  final.push (cb);
+  let final = cb ()
   return final ;
 }
-console.log (callMe(addFive(2)))
+let test = callMe (function (){
+  return 21 ;
+});
 
 // Data Starts (Don't change this)
 const people = [
@@ -486,9 +486,9 @@ function filter (arr , cb){
 
     
     let multiplyByNine = multiplyBy(9);
-    console.log(multiplyByFive(10)); // 90
-    console.log(multiplyByFive(20)); // 180
-    console.log(multiplyByFive(5)); // 45
+    console.log(multiplyByNine(10)); // 90
+    console.log(multiplyByNine(20)); // 180
+    console.log(multiplyByNine(5)); // 45
 */
 function multiplyBy (num) {
   return function (num2){
