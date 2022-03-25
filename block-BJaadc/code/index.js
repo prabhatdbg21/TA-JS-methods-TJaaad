@@ -68,13 +68,15 @@ newMessage = message.replace ("thinking" , "decide");
 console.log (newMessage);
 
 // Log all the characters from the message variable (you can user for..of loop on string)
-/*
+
 for (let character of message){
-    console.log ( message.charAt(character))
+    console.log ( character)
 }
-*/
+
 // Split all the words in message (split by " " space) and store it in a variable messageArray
 let messageArray = message.split (" ")
 
 // Log all the words of messageArray
-console.log (messageArray)
+for (let word of messageArray){
+    console.log (word);
+}
