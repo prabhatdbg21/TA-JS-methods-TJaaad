@@ -1,22 +1,43 @@
 let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
 
 // Add a new element ('Papaya') into fruits array at end
+fruits.push('Papaya');
 
 // Remove the last element from fruits array
+fruits.pop();
 
 // Log the current length of fruits array
+console.log (fruits.length)
 
 // Remove the first element from fruits and log the value of fruits (use delete arr[0])
+console.log (fruits.shift())
 
 // Log the element on index 0 and 1
+console.log (fruits.slice(0, 2))
 
 // If the element at 0 index is undefined and index 1 is 'Banana' shift all the values to one lower index (use shift method)
+fruits = [undefined , 'Banana', 'Orange', 'Apple', 'Mango'];
+fruits.shift()
 
 // Add a new element to the start ('Guava') and shift the index of all other to one higher value
+fruits.unshift("Guava")
 
 // Add a new element to the start ('Dragon Fruit') and shift the index of all other to one higher value
+fruits.unshift("Dragon Fruit")
 
 // Log true or false based on the value at index 0 and 1 is 'Dragon Fruit' and 'Guava' or not
+function toCheck () {
+    if ( fruits[0] == 'Dragon Fruit'){
+        console.log (true)
+    }
+    else if ( fruits[1] == 'Guava'){
+        console.log (true)
+    }
+    else{
+        console.log (false)
+    }
+}
+console.log (fruits.forEach(toCheck () ) )
 
 // Update the value of index 1 to `Pears`
 
