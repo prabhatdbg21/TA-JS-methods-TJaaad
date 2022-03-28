@@ -10,13 +10,13 @@ fruits.pop();
 console.log (fruits.length)
 
 // Remove the first element from fruits and log the value of fruits (use delete arr[0])
-console.log (fruits.shift())
+delete fruits[0]
 
 // Log the element on index 0 and 1
-console.log (fruits.slice(0, 2))
+console.log (fruits[0] , fruits[1]);
 
 // If the element at 0 index is undefined and index 1 is 'Banana' shift all the values to one lower index (use shift method)
-fruits = [undefined , 'Banana', 'Orange', 'Apple', 'Mango'];
+//fruits = [undefined , 'Banana', 'Orange', 'Apple', 'Mango'];
 fruits.shift()
 
 // Add a new element to the start ('Guava') and shift the index of all other to one higher value
@@ -38,17 +38,15 @@ function toCheck (index) {
         console.log (false)
     }
 }
-//console.log (fruits.forEach(toCheck () ) )
-
 
 // Update the value of index 1 to `Pears`
-fruits.splice ( 1 , 1 , "Pears")
+fruits[1] = "Pears" ;
 
 // Add the 'Kiwi' and 'Lemon' to the index 1 and 2 and shift the other element to next index (use splice to add element)
 fruits.splice ( 1 , 0 , "kiwi" , "lemon")
 
 // Remove (slice) all the element from index 5
-fruits.splice ( 5 )
+fruits.slice ( 5 ) 
 
 // Create another array named moreFruits with values ['Berries', 'Melons']
 let moreFruits = ["Berries", "Melons"]
@@ -117,7 +115,7 @@ console.log (halfNumbers)
 
 // Create a new variable named oddNumbers that store all the odd numbers in numbersThree array
 let oddNumbers = newFlatNumbersThree.filter(function(num){
-    if ( num % 2 != 0  ){
+    if ( num % 2 !== 0  ){
      return num ;
     }
 })
@@ -135,19 +133,13 @@ console.log (evenNumbers);
 console.log (newFlatNumbersThree.indexOf(10))
 
 // Reverse the values of numbersThree array
-console.log (newFlatNumbersThree.reverse())
+console.log (numbersThree.reverse())
 
 // Reverse the values of numbersTwo array
 console.log (numbersTwo.reverse())
 
 // Join all fruits with '-', convert to uppercase and log it
-let allFruitsUpperCase = uppercaseFruits.reduce(function (acc , fruit){
-    return acc + fruit ;
-}, '  ')
-console.log (allFruitsUpperCase)
+console.log(fruits.join("-").toUpperCase())
 
 // Join all fruits with '&', convert to lowercase and log it
-let allFruitsLowerCase = lowercaseFruits.reduce(function (acc , fruit){
-    return acc + fruit ;
-}, '  ')
-console.log (allFruitsLowerCase)
+console.log(fruits.join("&").toLowerCase())
