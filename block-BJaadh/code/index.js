@@ -30,30 +30,25 @@ let newStrings = [...strings]
 newStrings.shift()
 
 // - Find all the words that contain 'is' use string method 'includes'
+
 /*
-let isWord = []
-function is (word){
-  let r = word.includes("is")
-  console.log (r)
-}
-strings.forEach(is(is))
-*/
 let isWord = [] ;
 strings.forEach (function (varb){
   if (varb.includes("is")){
   isWord.push (varb)
   }
 })
+*/
+let isAll = strings.filter( (string) =>
+  string.includes("is")
+)
 
 
 // - Find all the words that contain 'is' use string method 'indexOf'
-/*
-strings.indexOf ("is")
-strings[strings.indexOf ("is" )]
-string.indexOf ("is" )
-2
-string.indexOf ("is" , 3 )
-*/
+
+let isAllAgain = strings.filter( (string) =>
+  string.indexOf("is") !== -1
+)
 
 // - Check if all the numbers in numbers array are divisible by three use array method (every)
 numbers.every (function (num){
@@ -79,12 +74,17 @@ console.log(largrstNumber)
 
 
 // - Find longest string in strings
+/*
 let largrstString = " "
 strings.forEach (function (a){
   if (largrstString < a)
   largrstString = a ;
 })
 console.log(largrstString)
+*/
+let longestString =[...strings].sort((a,b) =>
+a.length - b.length
+).pop ();
 
 // - Find all the even numbers
 numbers.filter (function (num){
@@ -154,9 +154,17 @@ customers.forEach (function (a ){
 fullName.sort()
 
 // - Create a new array that contains only user who has at least one vowel in the firstname.
-let leastOneVowel = []
-customers.forEach (function (a){
-  if (a.firstname.includes ("a" || "e" || "i" || "o" || "u")){
-    leastOneVowel.push (`${a.firstname} ${a.lastname}`)
+let vowelCustomer = customers.filter((customer) =>{
+  if (
+    customer.firstname.toLowerCase().includes("a") ||
+    customer.firstname.toLowerCase().includes("e") ||
+    customer.firstname.toLowerCase().includes("i") ||
+    customer.firstname.toLowerCase().includes("o") ||
+    customer.firstname.toLowerCase().includes("u") 
+  ){
+    return true
+  }
+  else{
+    return false
   }
 })
