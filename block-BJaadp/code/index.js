@@ -17,17 +17,77 @@ let persons = [
 
 // Find the average grade
 
+persons.map ((person) => 
+  person.grade
+)
+.reduce((acc , num) => {
+  return acc + num ;
+}, 0)  / persons.length
+
 // Find the average grade of male
+
+let male = persons.filter((person) => 
+   person.sex === 'M' 
+)
+
+male.map ((person) => 
+person.grade
+)
+.reduce((acc , num) => {
+  return acc + num ;
+}, 0)  / male.length
 
 // Find the average grade of female
 
+let female = persons.filter((person) => 
+   person.sex === 'F' 
+)
+
+female.map ((person) => 
+person.grade
+)
+.reduce((acc , num) => {
+  return acc + num ;
+}, 0)  / female.length
+
 // Find the highest grade
+
+persons.map ((person) => 
+  person.grade
+)
+.sort (( a , b) =>
+a-b
+).pop()
 
 // Find the highest grade in male
 
+male.map ((person) => 
+person.grade
+)
+.sort (( a , b) =>
+a-b
+).pop()
+
 // Find the highest grade in female
 
+female.map ((person) => 
+person.grade
+)
+.sort (( a , b) =>
+a-b
+).pop()
+
 // Find the highest grade for people whose name starts with 'J' or 'P'
+
+persons.filter ((person) =>
+person.name.startsWith('J') || 
+person.name.startsWith('P')
+).map ((pers) => 
+pers.grade
+)
+.sort (( a , b) =>
+a-b
+).pop()
 
 const fruitBasket = [
   'banana',
@@ -52,6 +112,16 @@ Output:
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
 
+
+
+/*
+let fruitsObj = fruitBasket.filter ((fruit) =>
+ 
+)
+*/
+
+ 
+
 /* 
 
 Use the fruitBasket array to create an array of array. Each array will contain two values name of fruit and number of times
@@ -69,6 +139,8 @@ const data = [
   [10, 11, 12],
 ];
 
+let data1 = data.flat(Infinity)
+
 // Using reduce flat data array
 
 const dataTwo = [
@@ -80,6 +152,8 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
+let data2 = dataTwo.flat(Infinity)
+
 /*
 
 Create these functions which accepts a number value and returns a number value:
@@ -89,6 +163,12 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
+let number = []
+data1.map ((num) =>
+   num + 1 
+
+)
+
 
 let pipeline = [
   increment,
@@ -129,4 +209,4 @@ let pipeline2 = [
   triple,
 ];
 
-// Find the output using pipeline2 the initial value if 8
+// Find the output using pipeline2 the initial 
