@@ -84,7 +84,7 @@ person.name.startsWith('J') ||
 person.name.startsWith('P')
 ).map ((pers) => 
 pers.grade
-)
+ )
 .sort (( a , b) =>
 a-b
 ).pop()
@@ -111,16 +111,17 @@ that fruit has appeared in the array. Store it in new variable fruitsObj
 Output: 
 {banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
 */
-
-
-
-/*
-let fruitsObj = fruitBasket.filter ((fruit) =>
  
-)
-*/
+let fruitsObj = fruitBasket.reduce ((acc , cv) => {
+  if (acc [cv]){
+    acc[cv] = acc[cv] + 1
+  }
+  else {
+    acc [cv] = 1 ;
+  } 
+  return acc ;
+} , {});
 
- 
 
 /* 
 
@@ -132,6 +133,13 @@ Output:
 [['banana', 2], ['cherry', 3], ['orange', 3], ['apple', 2], ['fig', 1]]
 */
 
+let fruitArray = Object.keys(fruitsObj).reduce ( (acc , cv) => {
+  acc = acc.concat ([[cv , fruitsObj[cv]]])
+  return acc;
+},
+[]
+)
+
 const data = [
   [1, 2, 3],
   [4, 5, 6],
@@ -139,7 +147,10 @@ const data = [
   [10, 11, 12],
 ];
 
-let data1 = data.flat(Infinity)
+data.reduce ((acc , cv) => {
+  acc = acc.concat(cv);
+  return acc ;
+} , [])
 
 // Using reduce flat data array
 
@@ -152,7 +163,10 @@ const dataTwo = [
 
 // Using reduce flat dataTwo array
 
-let data2 = dataTwo.flat(Infinity)
+dataTwo.reduce ((acc , cv) => {
+  acc = acc.concat(cv.flat(Infinity));
+  return acc ;
+} , [])
 
 /*
 
@@ -163,12 +177,23 @@ Create these functions which accepts a number value and returns a number value:
   - `triple` triples the input 
   - `half` converts the value to half and return the integer value not decimal (use Math.round(21.5) => 21)
 */
-let number = []
-data1.map ((num) =>
-   num + 1 
 
-)
-
+function increment (num){
+  return num + 1;
+}
+function double (num){
+  return num * 2;
+}
+function decrement (num){
+  return num - 1;
+}
+function triple (num){
+  return num * 3;
+}
+function half (num){
+  return Math.round(num / 2);
+}
+ 
 
 let pipeline = [
   increment,
@@ -180,6 +205,11 @@ let pipeline = [
   half,
   increment,
 ];
+
+pipeline.reduce ((acc , cv ) => {
+  acc = cv (acc);
+  return acc;
+}, 3)
 
 /*
 Using the pipeline variable that contains the collection of functions, taking the initial value 3 find the output.
@@ -209,4 +239,8 @@ let pipeline2 = [
   triple,
 ];
 
-// Find the output using pipeline2 the initial 
+pipeline2.reduce ((acc , cv ) => {
+  acc = cv (acc);
+  return acc;
+}, 8)
+// Find the output using pipeline2 the initial is 8
