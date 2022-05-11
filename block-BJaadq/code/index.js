@@ -2,34 +2,80 @@
 
 function countAllPeople() {
   // your code goes here
+  let allPeople = 0
+  for ( i = 0 ; i < got.houses.length ; i++ ) {
+    allPeople = allPeople + got.houses[i].people.length
+  }
+  console.log (allPeople)
 }
 
 function peopleByHouses() {
   // your code goes here
+  let peopleHouses = []
+  for ( i = 0 ; i < got.houses.length ; i++ ) {
+    peopleHouses.push (`${got.houses[i].name} : ${got.houses[i].people.length} `)
+  }
+  console.log (peopleHouses)
 }
 
+
+let everyoneName = []
 function everyone() {
   // your code goes here
+  for ( i = 0 ; i < got.houses.length ; i++ ) {
+    for ( j = 0 ; j < got.houses[i].people.length ; j++ ){
+      everyoneName.push(got.houses[i].people[j].name)
+    }
 }
+return everyoneName
+}
+
 
 function nameWithS() {
   // your code goes here
+  console.log (
+    everyoneName.filter ((name) =>
+    name.includes("S") || 
+    name.includes("s")
+  )
+)
 }
 
 function nameWithA() {
   // your code goes here
+  console.log (
+    everyoneName.filter ((name) =>
+    name.includes("A") || 
+    name.includes("a")
+  ) 
+  ) 
 }
 
 function surnameWithS() {
   // your code goes here
 }
 
+/*
 function surnameWithA() {
   // your code goes here
+  console.log (
+    everyoneName.filter ((name) =>
+    name.        ("A") || 
+    name.surnameWith("a")
+  ) 
+  ) 
 }
+*/
 
 function peopleNameOfAllHouses() {
   // your code goes here
+  let peopleNameHouses = []
+  for ( i = 0 ; i < got.houses.length ; i++ ) {
+    for ( j = 0 ; j < got.houses[i].people.length ; j++ ) {
+    peopleNameHouses.push (`${got.houses[i].name} : ${got.houses[i].people[j].name} `)
+    }
+  }
+  console.log (peopleNameHouses)
 }
 
 // Testing your result after writing your function
