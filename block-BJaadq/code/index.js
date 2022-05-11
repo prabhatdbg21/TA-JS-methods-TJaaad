@@ -11,72 +11,71 @@ function countAllPeople() {
 
 function peopleByHouses() {
   // your code goes here
-  let peopleHouses = []
-  for ( i = 0 ; i < got.houses.length ; i++ ) {
-    peopleHouses.push (`${got.houses[i].name} : ${got.houses[i].people.length} `)
-  }
-  console.log (peopleHouses)
+  let final = {} ;
+  got.houses.forEach((house) => {
+    final[house.name] =  house.people.length ;
+  });
+  return final ;
 }
 
 
-let everyoneName = []
 function everyone() {
   // your code goes here
-  for ( i = 0 ; i < got.houses.length ; i++ ) {
-    for ( j = 0 ; j < got.houses[i].people.length ; j++ ){
-      everyoneName.push(got.houses[i].people[j].name)
-    }
-}
-return everyoneName
+  let final = [];
+  got.houses.forEach ((house) => {
+    let peopleName = house.people.map ((people) => 
+    people.name
+    );
+    final = final.concat(peopleName) ;
+  })
+  return final ;
 }
 
 
 function nameWithS() {
   // your code goes here
-  console.log (
-    everyoneName.filter ((name) =>
-    name.includes("S") || 
-    name.includes("s")
+  let allPeople = everyone();
+  return allPeople.filter((name) =>
+  name.toLowerCase().includes("s")
   )
-)
 }
 
 function nameWithA() {
   // your code goes here
-  console.log (
-    everyoneName.filter ((name) =>
-    name.includes("A") || 
-    name.includes("a")
-  ) 
-  ) 
+  let allPeople = everyone();
+  return allPeople.filter((name) =>
+  name.toLowerCase().includes("a")
+  )
 }
 
 function surnameWithS() {
   // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name) =>
+  name.split(" ")[1].toLowerCase().includes("s")
+  )
 }
 
-/*
+
 function surnameWithA() {
   // your code goes here
-  console.log (
-    everyoneName.filter ((name) =>
-    name.        ("A") || 
-    name.surnameWith("a")
-  ) 
-  ) 
+  let allPeople = everyone();
+  return allPeople.filter((name) =>
+  name.split(" ")[1].toLowerCase().includes("a")
+  )
 }
-*/
+
 
 function peopleNameOfAllHouses() {
   // your code goes here
-  let peopleNameHouses = []
-  for ( i = 0 ; i < got.houses.length ; i++ ) {
-    for ( j = 0 ; j < got.houses[i].people.length ; j++ ) {
-    peopleNameHouses.push (`${got.houses[i].name} : ${got.houses[i].people[j].name} `)
-    }
-  }
-  console.log (peopleNameHouses)
-}
+  let final = {};
+  got.houses.forEach ((house) => {
+    final[house.name] = house.people.map(
+      (p) => p.name
+    );
+  });
+  return final; 
+} 
 
 // Testing your result after writing your function
 console.log(countAllPeople());
