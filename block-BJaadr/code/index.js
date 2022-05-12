@@ -2,10 +2,18 @@
 
 function countAllPeople() {
   // your code goes here
+  let final = got.houses
+    .map((house )=> house.people.length)
+    .reduce ((acc , num) => {return acc + num }, 0  )
+  return final ;
 }
 
 function peopleByHouses() {
   // your code goes here
+  got.houses
+    .map((house )=> house.people.length)
+    .reduce ((acc , num) => {return acc + num }, {}  )
+  return final ;
 }
 
 function everyone() {
